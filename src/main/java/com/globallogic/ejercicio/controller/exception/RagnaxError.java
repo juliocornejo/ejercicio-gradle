@@ -1,4 +1,4 @@
-package com.globallogic.ejercicio.controller;
+package com.globallogic.ejercicio.controller.exception;
 
 import java.io.Serializable;
 
