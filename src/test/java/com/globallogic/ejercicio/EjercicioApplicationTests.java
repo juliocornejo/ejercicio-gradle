@@ -57,8 +57,6 @@ public class EjercicioApplicationTests {
 	@Test
 	public void registrarUsuario_throwEjercicio() throws EjercicioException {
 		
-//		ResponseDTO responseDTO = new ResponseDTO("uuid", new Date(), new Date(), new Date(), "token", true);
-		
 		Mockito.when(registrarService.registrarUsuario(Matchers.any(Usuario.class), Matchers.any(String.class))).
 			thenThrow(EjercicioException.class);
 

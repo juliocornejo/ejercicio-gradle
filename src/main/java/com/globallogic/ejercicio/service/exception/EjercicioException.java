@@ -5,9 +5,6 @@ package com.globallogic.ejercicio.service.exception;
  */
 public class EjercicioException extends RuntimeException{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7672936385153673862L;
 
 	public EjercicioException(){

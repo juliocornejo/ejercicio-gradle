@@ -20,51 +20,50 @@ import com.globallogic.ejercicio.service.utilidades.ValidacionPatrones;
  */
 @Service
 public class RegisterServiceImpl implements RegistrarService {
-	
+
 	private Logger LOGGER = LoggerFactory.getLogger(RegisterServiceImpl.class);
-	
-	@Autowired
+
+//	@Autowired
 	private TransaccionalDAO registerDAO;
-	
-	@Autowired
+
+//	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@Autowired
+	public RegisterServiceImpl(TransaccionalDAO registerDAO, PasswordEncoder passwordEncoder){
+		this.registerDAO = registerDAO;
+        this.passwordEncoder = passwordEncoder;
+	}
+	
 	public ResponseDTO registrarUsuario(Usuario usuario, String token) throws EjercicioException{
-		
-		
+
+
 		if(ValidacionPatrones.validarPatronSeguridadContrasenha(usuario.getPassword())) {
 			if(ValidacionPatrones.validarPatronEmail(usuario.getEmail())) {
 				
-				LOGGER.info("ir a buscar email:");
-				Usuario metUsuario = registerDAO.buscar(usuario.getEmail());
+				registerDAO.buscar(usuario.getEmail());
 
-				if(metUsuario==null) {
-					
-					Date fechaRegistro = new Date();
-					
-					usuario.setUuid(ValidacionPatrones.uniqueUuid());
-					
-					usuario.setToken(token.replace("Bearer", "").trim());
+				Date fechaRegistro = new Date();
 
-					usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-					
-					usuario.setCreated(fechaRegistro);
-					
-					usuario.setModified(fechaRegistro);
-					
-					usuario.setLastLogin(fechaRegistro);
-					
-					usuario.setIsActive(true);
-					
-					registerDAO.insert(usuario);
-					
-					return new ResponseDTO(usuario.getUuid(), usuario.getCreated(), usuario.getModified(), usuario.getLastLogin(),
-							usuario.getToken() , usuario.getIsActive());
+				usuario.setUuid(ValidacionPatrones.uniqueUuid());
 
-				}else {
-					LOGGER.error("error en validacion El correo ya registrado");
-					throw new EjercicioException("El correo ya registrado");
-				}
+				usuario.setToken(token.replace("Bearer", "").trim());
+
+				usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+
+				usuario.setCreated(fechaRegistro);
+
+				usuario.setModified(fechaRegistro);
+
+				usuario.setLastLogin(fechaRegistro);
+
+				usuario.setIsActive(true);
+
+				registerDAO.insert(usuario);
+
+				return new ResponseDTO(usuario.getUuid(), usuario.getCreated(), usuario.getModified(), usuario.getLastLogin(),
+						usuario.getToken() , usuario.getIsActive());
+
 			}else {
 				LOGGER.error("error en validacion El formato del email es incorrecto");
 				throw new EjercicioException("El formato del email es incorrecto");
@@ -74,18 +73,5 @@ public class RegisterServiceImpl implements RegistrarService {
 			throw new EjercicioException("la contrasenha es debil");
 		}
 	}
-	
-	/***buscarUsuario(usuario);
-	private Usuario buscarUsuario(Usuario usuario) {
-		
-		usuario = registerDAO.buscar(usuario.getEmail());
-		
-		for(Telefono tel : usuario.getPhones()) {
-			LOGGER.info("telefono : {}", tel);
-		}
-		
-		return usuario;
-	}
-	****/
 
 }

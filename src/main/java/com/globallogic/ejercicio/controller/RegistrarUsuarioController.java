@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +18,6 @@ import com.globallogic.ejercicio.service.exception.EjercicioException;
 import com.globallogic.ejercicio.service.impl.RegisterServiceImpl;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 
 /**
  * Created by julio cornejo on 29-07-19.
@@ -35,11 +33,6 @@ public class RegistrarUsuarioController {
 	
 	@Autowired
 	private RegistrarService registrarService;
-	
-//	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<String>  prueba()  throws EjercicioException{
-//		return new ResponseEntity<>("texto", HttpStatus.OK);
-//	}
 	
 	@PostMapping(path = "/registrar-usuario")
 	public ResponseEntity<ResponseDTO> registrarUsuario(@RequestBody Usuario usuario,HttpServletResponse response) 

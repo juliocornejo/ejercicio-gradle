@@ -23,10 +23,10 @@ public class ExceptionControllerAdvice {
 
     @ResponseStatus(value = HttpStatus.NOT_ACCEPTABLE)
     @ExceptionHandler(EjercicioException.class)
-    public ResponseEntity<RagnaxError> handlerException(EjercicioException lie) {
+    public ResponseEntity<ResponseError> handlerException(EjercicioException lie) {
         LOGGER.error("[ExceptionControllerAdvice] Error en ejercicio: {} .", lie.getMessage());
         
-        return new ResponseEntity<>(new RagnaxError(lie.getMessage()),
+        return new ResponseEntity<>(new ResponseError(lie.getMessage()),
                 HttpStatus.NOT_ACCEPTABLE);
         
     }

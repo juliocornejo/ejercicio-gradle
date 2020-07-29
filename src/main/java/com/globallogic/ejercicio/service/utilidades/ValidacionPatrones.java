@@ -1,7 +1,5 @@
 package com.globallogic.ejercicio.service.utilidades;
 
-
-
 import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
