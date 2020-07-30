@@ -58,7 +58,7 @@ public class RegistrarServiceImpl implements RegistrarService {
 
 				usuario.setIsActive(true);
 
-				registerDAO.insert(usuario);
+				registerDAO.crear(usuario);
 
 				return new ResponseDTO(usuario.getUuid(), usuario.getCreated(), usuario.getModified(), usuario.getLastLogin(),
 						usuario.getToken() , usuario.getIsActive());

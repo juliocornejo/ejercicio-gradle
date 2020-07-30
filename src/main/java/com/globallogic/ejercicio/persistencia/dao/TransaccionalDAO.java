@@ -25,7 +25,7 @@ public class TransaccionalDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void insert(Usuario user) {
+	public void crear(Usuario user) {
 		entityManager.persist(user);
 	}
 

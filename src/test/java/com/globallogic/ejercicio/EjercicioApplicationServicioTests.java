@@ -62,7 +62,7 @@ public class EjercicioApplicationServicioTests {
 		
 		Usuario usuario = new Usuario("julio_cornejo", "julio@julio.com", "2A5%/$#52345AEWSa", phones); 
 		
-		doNothing().when(registerDAO).insert(Matchers.any(Usuario.class));
+		doNothing().when(registerDAO).crear(Matchers.any(Usuario.class));
 		
 		Mockito.when(passwordEncoder.encode(Matchers.any(String.class))).thenReturn(contrasenha);
 
@@ -81,7 +81,7 @@ public class EjercicioApplicationServicioTests {
 		
 		Usuario usuario = new Usuario("julio_cornejo", "julio@julio.com", "2A55", phones); 
 		
-		doNothing().when(registerDAO).insert(Matchers.any(Usuario.class));
+		doNothing().when(registerDAO).crear(Matchers.any(Usuario.class));
 		
 		Mockito.when(passwordEncoder.encode(Matchers.any(String.class))).thenReturn(contrasenha);
 
@@ -100,7 +100,7 @@ public class EjercicioApplicationServicioTests {
 		
 		Usuario usuario = new Usuario("julio_cornejo", "julio_julio.com", "2A5%/$#52345AEWSa", phones); 
 		
-		doNothing().when(registerDAO).insert(Matchers.any(Usuario.class));
+		doNothing().when(registerDAO).crear(Matchers.any(Usuario.class));
 		
 		Mockito.when(passwordEncoder.encode(Matchers.any(String.class))).thenReturn(contrasenha);
 
@@ -119,7 +119,7 @@ public class EjercicioApplicationServicioTests {
 		
 		Usuario usuario = new Usuario("julio_cornejo", "julio@julio.com", "2A5%/$#52345AEWSa", phones);  
 		
-		doNothing().when(registerDAO).insert(Matchers.any(Usuario.class));
+		doNothing().when(registerDAO).crear(Matchers.any(Usuario.class));
 		
 		Mockito.when(passwordEncoder.encode(Matchers.any(String.class))).thenReturn(contrasenha);
 
