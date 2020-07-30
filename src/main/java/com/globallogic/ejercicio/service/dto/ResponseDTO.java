@@ -15,16 +15,16 @@ public class ResponseDTO implements Serializable{
 	private Date modified;
 	private Date last_login;
 	private String token;
-	private Boolean isActive;
+	private Boolean isactive;
 	
-	public ResponseDTO(String id, Date created, Date modified, Date last_login, String token, Boolean isActive) {
+	public ResponseDTO(String id, Date created, Date modified, Date last_login, String token, Boolean isactive) {
 		super();
 		this.id = id;
 		this.created = created;
 		this.modified = modified;
 		this.last_login = last_login;
 		this.token = token;
-		this.isActive = isActive;
+		this.isactive = isactive;
 	}
 	
 	public String getId() {
@@ -57,11 +57,14 @@ public class ResponseDTO implements Serializable{
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public Boolean getIsActive() {
-		return isActive;
+
+	public Boolean getIsactive() {
+		return isactive;
 	}
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
+
+	public void setIsactive(Boolean isactive) {
+		this.isactive = isactive;
 	}
+	
 	
 }
