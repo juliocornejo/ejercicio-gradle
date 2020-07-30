@@ -1,8 +1,11 @@
 package com.globallogic.ejercicio.service.utilidades;
 
 import java.security.SecureRandom;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.globallogic.ejercicio.persistencia.entity.Telefono;
 
 /**
  * Created by julio cornejo on 29-07-19.
@@ -51,6 +54,13 @@ public class ValidacionPatrones {
         }
 
         return Long.toHexString(MSB | ng.nextLong()) + Long.toHexString(MSB | ng.nextLong());
+    }
+	
+	
+	public static void loggerTelefono(List<Telefono> listaTelefono) {
+        
+		listaTelefono.forEach((number) -> System.out.println(number));
+        
     }
 	
 	

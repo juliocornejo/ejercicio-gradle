@@ -23,10 +23,8 @@ public class RegisterServiceImpl implements RegistrarService {
 
 	private Logger LOGGER = LoggerFactory.getLogger(RegisterServiceImpl.class);
 
-//	@Autowired
 	private TransaccionalDAO registerDAO;
 
-//	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
@@ -37,7 +35,8 @@ public class RegisterServiceImpl implements RegistrarService {
 	
 	public ResponseDTO registrarUsuario(Usuario usuario, String token) throws EjercicioException{
 
-
+		ValidacionPatrones.loggerTelefono(usuario.getPhones());
+		
 		if(ValidacionPatrones.validarPatronSeguridadContrasenha(usuario.getPassword())) {
 			if(ValidacionPatrones.validarPatronEmail(usuario.getEmail())) {
 				
