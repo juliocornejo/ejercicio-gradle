@@ -30,7 +30,7 @@ import com.globallogic.ejercicio.persistencia.entity.Usuario;
 import com.globallogic.ejercicio.service.RegistrarService;
 import com.globallogic.ejercicio.service.dto.ResponseDTO;
 import com.globallogic.ejercicio.service.exception.EjercicioException;
-import com.globallogic.ejercicio.service.impl.RegisterServiceImpl;
+import com.globallogic.ejercicio.service.impl.RegistrarServiceImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = EjercicioApplication.class)
@@ -48,7 +48,7 @@ public class EjercicioApplicationServicioTests {
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		registrarService = new RegisterServiceImpl(registerDAO, passwordEncoder);
+		registrarService = new RegistrarServiceImpl(registerDAO, passwordEncoder);
 	}
 
 	@Test

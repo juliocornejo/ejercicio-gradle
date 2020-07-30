@@ -15,7 +15,7 @@ import com.globallogic.ejercicio.persistencia.entity.Usuario;
 import com.globallogic.ejercicio.service.RegistrarService;
 import com.globallogic.ejercicio.service.dto.ResponseDTO;
 import com.globallogic.ejercicio.service.exception.EjercicioException;
-import com.globallogic.ejercicio.service.impl.RegisterServiceImpl;
+import com.globallogic.ejercicio.service.impl.RegistrarServiceImpl;
 
 import org.springframework.http.HttpStatus;
 
@@ -26,7 +26,7 @@ import org.springframework.http.HttpStatus;
 @RestController
 public class RegistrarUsuarioController {
 	
-	private Logger LOGGER = LoggerFactory.getLogger(RegisterServiceImpl.class);
+	private Logger LOGGER = LoggerFactory.getLogger(RegistrarServiceImpl.class);
 	
 	@Autowired
 	private AuthenticationServer authenticationServer;

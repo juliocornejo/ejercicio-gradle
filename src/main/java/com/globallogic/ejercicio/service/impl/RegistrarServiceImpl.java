@@ -19,16 +19,16 @@ import com.globallogic.ejercicio.service.utilidades.ValidacionPatrones;
  * Created by julio cornejo on 29-07-19.
  */
 @Service
-public class RegisterServiceImpl implements RegistrarService {
+public class RegistrarServiceImpl implements RegistrarService {
 
-	private Logger LOGGER = LoggerFactory.getLogger(RegisterServiceImpl.class);
+	private Logger LOGGER = LoggerFactory.getLogger(RegistrarServiceImpl.class);
 
 	private TransaccionalDAO registerDAO;
 
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	public RegisterServiceImpl(TransaccionalDAO registerDAO, PasswordEncoder passwordEncoder){
+	public RegistrarServiceImpl(TransaccionalDAO registerDAO, PasswordEncoder passwordEncoder){
 		this.registerDAO = registerDAO;
         this.passwordEncoder = passwordEncoder;
 	}
